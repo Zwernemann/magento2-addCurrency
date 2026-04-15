@@ -18,11 +18,13 @@ class CurrencyBundle extends DataBundle
     {
         $bundle = parent::get($locale);
         $bundleAsArray = $this->toArray($bundle);
-        $bundleAsArray['Currencies']['SLE'] = ['Le', 'Sierra Leonean Leone'];
-        $bundleAsArray['CurrencyPlurals']['SLE'] = [
-            'one'   => 'Sierra Leonean Leone',
-            'other' => 'Sierra Leonean Leones',
-        ];
+        if (!isset($bundleAsArray['Currencies']['SLE'])) {
+            $bundleAsArray['Currencies']['SLE'] = ['Le', 'Sierra Leonean Leone'];
+            $bundleAsArray['CurrencyPlurals']['SLE'] = [
+                'one'   => 'Sierra Leonean Leone',
+                'other' => 'Sierra Leonean Leones',
+            ];
+        }
         return $bundleAsArray;
     }
 }

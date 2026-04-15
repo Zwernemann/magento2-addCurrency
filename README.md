@@ -8,11 +8,10 @@ SLE was introduced in 2022 as a redenomination of the Sierra Leonean Leone (SLL)
 
 ## What the module does
 
-- Adds `SLE` with the label *Sierra Leonean Leone (SLE)* to the currency selection list in the Magento admin panel (**Stores > Configuration > General > Currency Setup**).
-- The entry is inserted alphabetically so the list stays sorted.
-- If a future ICU data update already includes SLE, the module detects this and skips the duplicate entry.
-
-The currency symbol (`Le`) can be set after installation via **Stores > Currency > Currency Symbols**.
+- Overrides `Magento\Framework\Locale\Bundle\CurrencyBundle` to inject SLE (symbol `Le`, name *Sierra Leonean Leone*) into the ICU currency data at bootstrap time.
+- If a future ICU/CLDR data update already includes SLE, the module detects this and skips the injection — the ICU data takes precedence.
+- Adds SLE to Magento's list of locale-allowed and installed currencies via two plugins.
+- SLE then appears in **Stores > Configuration > General > Currency Setup** under *Base Currency* and *Allowed Currencies*.
 
 ## Installation
 

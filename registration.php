@@ -5,3 +5,4 @@ ComponentRegistrar::register(
     'Zwernemann_AddCurrency',
     __DIR__
 );
+require_once(__DIR__ . '/Override/CurrencyBundle.php');

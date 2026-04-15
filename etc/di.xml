@@ -1,6 +1,14 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Magento\Config\Model\Config\Source\Locale\Currency\All"
-                type="Zwernemann\AddCurrency\Model\Config\Source\Locale\Currency\All"/>
+    <type name="Magento\Framework\Locale\Config">
+        <plugin name="zwernemann_sle_locale_config"
+                type="Zwernemann\AddCurrency\Plugin\LocaleConfig"
+                sortOrder="1"/>
+    </type>
+    <type name="Magento\Framework\App\Config">
+        <plugin name="zwernemann_sle_app_config"
+                type="Zwernemann\AddCurrency\Plugin\ConfigPlugin"
+                sortOrder="1"/>
+    </type>
 </config>
